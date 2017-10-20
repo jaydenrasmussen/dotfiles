@@ -52,6 +52,7 @@ brew install git
 brew install python
 brew install nmap
 brew install exiftool
+brew install gnupg
 brew cleanup
 sleep 5s
 clear
@@ -64,9 +65,6 @@ brew install go
 brew install python3
 brew install youtube-dl
 brew install ffmpeg
-brew install gnupg
-brew install wget
-brew install nmap
 
 brew cask install adapter
 brew cask install appcleaner
