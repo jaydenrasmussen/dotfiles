@@ -20,7 +20,13 @@ echo "-----------------------------------"
 sudo xcodebuild -license
 # Install the xcode CLT
 xcode-select --install
-# Install Homebrew
+clear
+echo "-----------------------------------"
+echo "       Installing Oh My Zsh!       "
+echo "-----------------------------------"
+
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+clear
 echo "-----------------------------------"
 echo "        Installing Homebrew        "
 echo "-----------------------------------"
@@ -53,39 +59,43 @@ echo "-----------------------------------"
 echo "       Installing Applications     "
 echo "-----------------------------------"
 brew install caskroom/cask/brew-cask
+brew install node
+brew install go
+brew install python3
+brew install youtube-dl
+brew install ffmpeg
+brew install gnupg
+brew install wget
+brew install nmap
 
-apps=(
-        adapter
-        appcleaner
-        caffeine
-        discord
-        dropbox
-        evernote
-        flash
-        go2shell
-        google-chrome
-        google-play-music-desktop-player
-        hermes
-        itsycal
-        keka
-        notational-velocity
-        notion
-        onyx
-        qlcolorcode
-        qlmarkdown
-        qlstephen
-        slack
-        smcfancontrol
-        spotify
-        transmission
-        unetbootin
-        veracrypt
-        virtualbox
-        virtualbox-extension-pack
-        vlc
-)
-
-brew cask install --appdir="/Applications" ${apps[@]}
+brew cask install adapter
+brew cask install appcleaner
+brew cask install caffeine
+brew cask install discord
+brew cask install dropbox
+brew cask install evernote
+brew cask install flash
+brew cask install go2shell
+brew cask install google-chrome
+brew cask install google-play-music-desktop-player
+brew cask install hermes
+brew cask install itsycal
+brew cask install keka
+brew cask install notational-velocity
+brew cask install notion
+brew cask install onyx
+brew cask install qlcolorcode
+brew cask install qlmarkdown
+brew cask install qlstephen
+brew cask install slack
+brew cask install smcfancontrol
+brew cask install spotify
+brew cask install transmission
+brew cask install unetbootin
+brew cask install veracrypt
+brew cask install virtualbox
+brew cask install virtualbox-extension-pack
+brew cask install vlc
 brew cask cleanup
 brew cleanup
 sleep 5s
@@ -155,20 +165,9 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
 killall NotificationCenter
 
-echo "----------------------------------"
-echo "           BASH PROFILING         "
-echo "----------------------------------"
-echo ""
-echo"Add the following to the file, save"
-echo " and quit"
-echo ""
-echo "alias mirror='wget -e robots=off -m -r -np'"
-echo "alias killDS='find . -name *.DS_Store -type f -delete'"
-echo "alias killfinder='killAll Finder'"
-
 read -n1 -r -p "Press space to reboot..." key
 if [ "$key" = '' ]; then
-    shutdown -r now
+    sudo shutdown -r now
     exit
 else
     exit
