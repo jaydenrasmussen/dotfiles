@@ -88,8 +88,6 @@ autoload -U promptinit; promptinit; prompt pure
 
 
 # ALIAS
-# downloader for music
-alias yget="cd ~/Downloads/youtube-dl && youtube-dl --audio-format best --add-metadata -q "
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv $HOME/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 # Convert line endings to UNIX
 alias dos2unix="perl -pi -e 's/\r\n?/\n/g'"
@@ -98,4 +96,5 @@ alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print \$2}'"
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
-alias bupgrade="brew update && brew upgrade && brew cleanup"
+alias ax="chmod a+x"
+alias yget="cd ~/Downloads/youtube-dl && youtube-dl --audio-format best --add-metadata -q "
