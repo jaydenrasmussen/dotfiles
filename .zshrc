@@ -98,3 +98,5 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 done
 alias ax="chmod a+x"
 alias yget="cd ~/Downloads/youtube-dl && youtube-dl --audio-format best --add-metadata -q "
+alias bupdate="brew update && brew upgrade && brew cleanup"
+export PATH="/usr/local/opt/libpcap/bin:$PATH"
