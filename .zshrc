@@ -97,6 +97,19 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
 alias ax="chmod a+x"
-alias yget="cd ~/Downloads/youtube-dl && youtube-dl --audio-format best --add-metadata -q "
+alias yget="cd ~/Downloads/youtube-dl && youtube-dl --extract-audio --audio-format mp3"
 alias bupdate="brew update && brew upgrade && brew cleanup"
 export PATH="/usr/local/opt/libpcap/bin:$PATH"
+# GoPath
+cd () {
+    builtin cd "$@"
+    cdir=$PWD
+    while [ "$cdir" != "/" ]; do
+        if [ -e "$cdir/.gopath" ]; then
+            export GOPATH=$cdir
+			export GOBIN=$GOPATH/bin
+            break
+        fi
+        cdir=$(dirname "$cdir")
+    done
+}
