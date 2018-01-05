@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # Clean Slate Protocol
-say "Initiating clean slate protocol..."
-sleep 10s
 clear
 echo " ================================= "
 echo " --------------------------------- "
@@ -10,8 +8,9 @@ echo "  INITIATING CLEAN SLATE PROTOCOL  "
 echo " "
 echo " --------------------------------- "
 echo " ================================= "
+sleep 5s
 clear
-# Agree to license
+
 echo "-----------------------------------"
 echo "Installing XCode Command Line Tools"
 echo "-----------------------------------"
@@ -21,12 +20,13 @@ sudo xcodebuild -license
 # Install the xcode CLT
 xcode-select --install
 clear
+
 echo "-----------------------------------"
 echo "       Installing Oh My Zsh!       "
 echo "-----------------------------------"
-
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 clear
+
 echo "-----------------------------------"
 echo "        Installing Homebrew        "
 echo "-----------------------------------"
@@ -54,17 +54,26 @@ brew install nmap
 brew install exiftool
 brew install gnupg
 brew cleanup
-sleep 5s
+clear
+echo "-----------------------------------"
+echo "      Building Dev Environment     "
+echo "-----------------------------------"
+brew install nvm
+nvm install lts/*
+brew install go
+npm i -g mocha yarn glide prettier pkg
+brwe install grunt-cli
+brew install openshift-cli
+brew install python3
+brew install docker
+brew cask install docker
+brew install kubernetes-cli
+brew install kubeless
+sudo ln -s ./.zshrc ~/.zshrc
 clear
 echo "-----------------------------------"
 echo "       Installing Applications     "
 echo "-----------------------------------"
-brew install nvm
-brew install go
-brew install python3
-brew install youtube-dl
-brew install ffmpeg
-
 brew install caskroom/cask/brew-cask
 brew cask install adapter
 brew cask install appcleaner
@@ -74,6 +83,7 @@ brew cask install dropbox
 brew cask install etcher
 brew cask install evernote
 brew cask install flash
+brew install ffmpeg
 brew cask install go2shell
 brew cask install google-chrome
 brew cask install google-play-music-desktop-player
@@ -89,12 +99,14 @@ brew cask install qlstephen
 brew cask install slack
 brew cask install smcfancontrol
 brew cask install spotify
+brew cask install sublime-text
 brew cask install transmission
 brew cask install unetbootin
 brew cask install veracrypt
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew cask install vlc
+brew install youtube-dl
 brew cask cleanup
 brew cleanup
 clear
@@ -103,7 +115,6 @@ echo "-----------------------------------"
 echo "            Applying UI            "
 echo "-----------------------------------"
 
-echo ""
 # Hide User and Time Machine from MenuBar
 for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
   defaults write "${domain}" dontAutoLoad -array \
@@ -162,7 +173,7 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
 killall NotificationCenter
 clear
-echo "All clear"
+echo  -e "\n\n\nAll clear\n\n\n"
 read -n1 -r -p "Press space to reboot..." key
 if [ "$key" = '' ]; then
     sudo shutdown -r now
