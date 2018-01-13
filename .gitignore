@@ -1,5 +1,6 @@
 # Globals
 .editorconfig
+bin
 
 # Mac things
 .DS_Store
@@ -38,3 +39,12 @@ node_modules
 logs
 .env*
 env
+
+#Go things
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
