@@ -3,7 +3,7 @@ export ZSH=/Users/jaydenrasmussen/.oh-my-zsh
 ZSH_THEME=""
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 plugins=(git)
 

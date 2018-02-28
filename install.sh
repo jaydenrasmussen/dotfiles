@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Clean Slate Protocol
 clear
 echo " ================================= "
 echo " --------------------------------- "
@@ -36,39 +35,31 @@ echo "-----------------------------------"
 # Clean up
 clear
 echo "-----------------------------------"
-echo "         Installing packages       "
+echo "          Updating Homebrew        "
 echo "-----------------------------------"
 brew update
 brew upgrade
 brew cleanup
 clear
 echo "-----------------------------------"
-echo "         Security Protocols        "
+echo "   Initiating Security Protocols   "
 echo "-----------------------------------"
 
-brew install git
-brew install wireshark
-brew install wget
-brew install python
-brew install nmap
-brew install exiftool
-brew install gnupg
-brew cleanup
+brew install git wireshark wget python nmap exiftool gnupg
 clear
 echo "-----------------------------------"
 echo "      Building Dev Environment     "
 echo "-----------------------------------"
 brew install nvm
 nvm install lts/*
-brew install go
 npm i -g mocha yarn glide prettier pkg
-brwe install grunt-cli
-brew install openshift-cli
-brew install python3
-brew install docker
+brwe install go grunt-cli openshift-cli python3 docker kubernetes-cli kubeless
 brew cask install docker
-brew install kubernetes-cli
-brew install kubeless
+cd ~/
+mkdir "Git"
+cd Git/
+git clone https://github.com/jaydenrasmussen/dotfiles.git
+cd dotfiles
 sudo ln -s ./.zshrc ~/.zshrc
 clear
 echo "-----------------------------------"
@@ -82,8 +73,9 @@ brew cask install discord
 brew cask install dropbox
 brew cask install etcher
 brew cask install evernote
-brew cask install flash
 brew install ffmpeg
+brew cask install firefox
+brew cask install flash
 brew cask install go2shell
 brew cask install google-chrome
 brew cask install google-play-music-desktop-player
@@ -165,13 +157,19 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 2
 # Ask for password immediately after sleep or screensaver
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
-# Disable sudden motion sensor
-sudo pmset -a sms 0
 # Increase Bluetooth Audio Quality
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 # Delete Notification Center
 launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
 killall NotificationCenter
+
+# Screensaver
+cd ~/
+wget "http://www.rasmusnielsen.dk/download.php?type=applewatch-screensaver"
+unzip "download.php?type=applewatch-screensaver"
+open WatchOSX.saver
+rm -rf __MACOSX "download.php?type=applewatch-screensaver" WatchOSX.saver
+
 clear
 echo  -e "\n\n\nAll clear\n\n\n"
 read -n1 -r -p "Press space to reboot..." key
