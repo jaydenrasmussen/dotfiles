@@ -1,20 +1,14 @@
 export ZSH=/Users/jaydenrasmussen/.oh-my-zsh
-
 ZSH_THEME=""
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
 plugins=(git)
-
 source $ZSH/oh-my-zsh.sh
-
 # Init pure
 autoload -U promptinit; promptinit; prompt pure
-
 # NVM DIR
 export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
+# Ensure that pcap is in the path
+export PATH="/usr/local/opt/libpcap/bin:$PATH"
 
 # ALIAS
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv $HOME/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
@@ -25,14 +19,18 @@ alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print \$2}'"
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
+# make executable
 alias ax="chmod a+x"
+# pirate music
 alias yget="cd ~/Downloads/youtube-dl && youtube-dl --extract-audio --audio-format mp3"
+# update procedure for brew
 alias bump="brew update && brew upgrade && brew cleanup"
-alias compile="./compile.sh"
-alias run="./run.sh"
+# for compiling c++ code
 alias compile="g++ -std=c++14"
+# starting a db
 alias start_mongo="mongod --dbpath /Volumes/Scratch/Mongo/db"
-export PATH="/usr/local/opt/libpcap/bin:$PATH"
+# count lines of code
+alias loc="cloc --exclude-dir=$(tr '\n' ',' < .clocignore) ."
 # GoPath
 cd () {
     builtin cd "$@"

@@ -53,7 +53,7 @@ echo "-----------------------------------"
 brew install nvm
 nvm install lts/*
 npm i -g mocha yarn glide prettier pkg
-brwe install go grunt-cli openshift-cli python3 docker kubernetes-cli kubeless
+brew install go grunt-cli openshift-cli python3 docker kubernetes-cli kubeless
 brew cask install docker
 cd ~/
 mkdir "Git"
@@ -73,7 +73,6 @@ brew cask install discord
 brew cask install dropbox
 brew cask install etcher
 brew cask install evernote
-brew install ffmpeg
 brew cask install firefox
 brew cask install flash
 brew cask install go2shell
@@ -98,7 +97,7 @@ brew cask install veracrypt
 brew cask install virtualbox
 brew cask install virtualbox-extension-pack
 brew cask install vlc
-brew install youtube-dl
+brew install ffmpeg youtube-dl
 brew cask cleanup
 brew cleanup
 clear

@@ -1,0 +1,9 @@
+node_modules
+bin
+package.json
+yarn.lock
+.gitignore
+.editorconfig
+README.md
+LICENSE.md
+*.zip
