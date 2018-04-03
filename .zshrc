@@ -30,7 +30,8 @@ alias compile="g++ -std=c++14"
 # starting a db
 alias start_mongo="mongod --dbpath /Volumes/Scratch/Mongo/db"
 # count lines of code
-alias loc="cloc --exclude-dir=$(tr '\n' ',' < .clocignore) ."
+# everything within this comma seperated list should be updated to include new stuff if needed
+alias loc="cloc --exclude-dir=node_modules,bin,package.json,yarn.lock,.gitignore,.editorconfig,README.md,LICENSE.md,*.zip ."
 # GoPath
 cd () {
     builtin cd "$@"
