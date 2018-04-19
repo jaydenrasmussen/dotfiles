@@ -13,18 +13,53 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 
 # Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install coreutils
+brew tap caskroom/cask
+brew tap caskroom/fonts
 
 brew update
 brew upgrade
-
-brew install go grunt-cli openshift-cli python3 docker kubernetes-cli kubeless nvm yarn dep automake cmake git heroku openssl rust telnet torus brew install the_silver_searcher
+export devapps=(
+    automake
+    cmake
+    docker
+    git
+    go
+    grunt-cli
+    heroku
+    kubeless
+    kubernetes-cli
+    m-cli
+    mongohub
+    nvm
+    openshift-cli
+    openssl
+    python
+    rust
+    telnet
+    the_silver_searcher
+    torus
+    yarn
+)
+brew install ${devapps[@]}
 brew cask install docker
+
+export fonts=(
+    font-roboto
+    font-roboto-mono
+    font-roboto-condensed
+    font-roboto-mono-slab
+    font-inter-ui
+)
+brew cask install ${fonts[@]}
+
 brew cleanup
+
 # Node tooling
 nvm install lts/*
 npm i -g mocha glide prettier pkg ava
 # Create the Git folder and environment
-mkdir ~/Git
+mkdir ~/Projects
 ln -s ../.gitignore ~/.gitignore
 
 # Make the terminal actually useful
