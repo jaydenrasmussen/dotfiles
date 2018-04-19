@@ -15,8 +15,7 @@ export secapps=(
     wireshark
     youtube-dl
 )
-brew install
-brew cleanup
+brew install ${secapps[@]}
 
 echo "----------------------------------------------------"
 echo "                 Installing Applications            "
