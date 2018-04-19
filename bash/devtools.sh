@@ -39,17 +39,18 @@ export devapps=(
     telnet
     the_silver_searcher
     torus
+    wget
     yarn
 )
 brew install ${devapps[@]}
 brew cask install docker
 
 export fonts=(
+    font-inter-ui
     font-roboto
     font-roboto-mono
     font-roboto-condensed
     font-roboto-mono-slab
-    font-inter-ui
 )
 brew cask install ${fonts[@]}
 

@@ -6,18 +6,59 @@ bash devtools.sh
 echo "----------------------------------------------------"
 echo "              Initiating Security Protocols         "
 echo "----------------------------------------------------"
-
-brew install git wireshark wget python nmap exiftool gnupg ffmpeg youtube-dl
+export secapps=(
+    exiftool
+    ffmpeg
+    gnupg
+    gpg-suite
+    nmap
+    wireshark
+    youtube-dl
+)
+brew install
 brew cleanup
 
 echo "----------------------------------------------------"
 echo "                 Installing Applications            "
 echo "----------------------------------------------------"
-brew install caskroom/cask/brew-cask
-brew cask install adapter appcleaner caffeine discord dropbox dupeguru etcher evernote firefox flash go2shell google-chrome google-play-music-desktop-player hermes itsycal keka notational-velocity notion onyx qlcolorcode qlmarkdown qlstephen slack smcfancontrol spotify sublime-text transmission unetbootin veracrypt virtualbox virtualbox-extension-pack vlc
-brew tap caskroom/fonts
-brew cask install font-roboto font-roboto-condensed font-roboto-mono \
- font-roboto-slab font-inter-ui
+export apps=(
+    adapter
+    appcleaner
+    caffeine
+    discord
+    dropbox
+    dupeguru
+    etcher
+    evernote
+    firefox
+    flash
+    gitup
+    go2shell
+    google-chrome
+    google-play-music-desktop-player
+    hermes
+    itsycal
+    keka
+    notational-velocity
+    notion
+    onyx
+    qlcolorcode
+    qlimagesize
+    qlmarkdown
+    qlstephen
+    quicklook-json
+    slack
+    smcfancontrol
+    spotify
+    sublime-text
+    transmission
+    unetbootin
+    veracrypt
+    virtualbox
+    virtualbox-extension-pack
+    vlc
+)
+brew cask install ${apps[@]}
 brew cask cleanup
 
 # macos

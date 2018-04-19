@@ -1,7 +1,5 @@
 # Initialize the macOS for devs
 
-# I need to review this, there's probably some stuff that needs to change
-
 # Hide User and Time Machine from MenuBar
 for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
   defaults write "${domain}" dontAutoLoad -array \
