@@ -1,7 +1,8 @@
 export ZSH=/Users/jaydenrasmussen/.oh-my-zsh
 ZSH_THEME=""
-plugins=(git)
+plugins=(git sublime)
 source $ZSH/oh-my-zsh.sh
+eval $(thefuck --alias)
 # Init pure
 autoload -U promptinit; promptinit; prompt pure
 # NVM DIR
@@ -29,6 +30,7 @@ alias bump="brew update && brew upgrade && brew cleanup"
 alias compile="g++ -std=c++14"
 # starting a db
 alias start_mongo="mongod --dbpath /Volumes/Scratch/Mongo/db"
+
 # count lines of code
 # everything within this comma seperated list should be updated to include new stuff if needed
 alias loc="cloc --exclude-dir=node_modules,bin,package.json,yarn.lock,.gitignore,.editorconfig,README.md,LICENSE.md,*.zip ."
@@ -45,3 +47,4 @@ cd () {
         cdir=$(dirname "$cdir")
     done
 }
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
