@@ -25,7 +25,6 @@ export devapps=(
     docker
     git
     go
-    grunt-cli
     heroku
     kubeless
     kubernetes-cli
@@ -38,7 +37,6 @@ export devapps=(
     rust
     telnet
     the_silver_searcher
-    torus
     wget
     yarn
 )
