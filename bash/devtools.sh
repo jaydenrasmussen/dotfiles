@@ -37,6 +37,7 @@ export devapps=(
     rust
     telnet
     the_silver_searcher
+    thefuck
     wget
     yarn
 )
@@ -50,6 +51,7 @@ export fonts=(
     font-roboto-condensed
     font-roboto-mono-slab
 )
+brew tap caskroom/fonts
 brew cask install ${fonts[@]}
 
 brew cleanup

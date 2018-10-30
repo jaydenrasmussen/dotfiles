@@ -18,9 +18,13 @@ export secapps=(
 brew install ${secapps[@]}
 
 echo "----------------------------------------------------"
+echo "              Initiating Security Protocols         "
+echo "----------------------------------------------------"
+
+echo "----------------------------------------------------"
 echo "                 Installing Applications            "
 echo "----------------------------------------------------"
-export apps=(
+export apps = (
     adapter
     appcleaner
     caffeine
@@ -56,6 +60,7 @@ export apps=(
     virtualbox
     virtualbox-extension-pack
     vlc
+    zoomus
 )
 brew cask install ${apps[@]}
 brew cask cleanup
