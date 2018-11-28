@@ -14,6 +14,7 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 # Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install coreutils
+brew tap aws/tap
 brew tap caskroom/cask
 brew tap caskroom/fonts
 
@@ -21,6 +22,8 @@ brew update
 brew upgrade
 export devapps=(
     automake
+    awscli
+    aws-sam-cli
     cmake
     docker
     git

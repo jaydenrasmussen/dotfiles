@@ -48,3 +48,4 @@ cd () {
     done
 }
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+eval "$(pyenv init -)"
