@@ -25,6 +25,7 @@ export devapps=(
     awscli
     aws-sam-cli
     cmake
+    composer
     docker
     git
     go
@@ -35,6 +36,7 @@ export devapps=(
     mongohub
     nvm
     openshift-cli
+    php@7.2
     openssl
     python
     rust
@@ -58,6 +60,11 @@ brew tap caskroom/fonts
 brew cask install ${fonts[@]}
 
 brew cleanup
+
+composer global require laravel/valet
+~/.composer/vendor/bin/valet install
+mkdir ~/Valet && cd ~/Valet
+valet park
 
 # Node tooling
 nvm install lts/*

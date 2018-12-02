@@ -10,6 +10,7 @@ export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
 # Ensure that pcap is in the path
 export PATH="/usr/local/opt/libpcap/bin:$PATH"
+export PATH="~/.composer/vendor/bin:$PATH"
 export GOPATH=~/Go
 # ALIAS
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv $HOME/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
