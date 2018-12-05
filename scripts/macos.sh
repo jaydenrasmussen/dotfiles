@@ -1,4 +1,12 @@
 # Initialize the macOS for devs
+echo "Attempting to batch make changes to the OS to make it more usable. A lot of these will probably fail\n"
+
+echo "installing screensaver"
+cd ~/dotfiles
+wget "http://www.rasmusnielsen.dk/download.php?type=applewatch-screensaver"
+unzip "download.php?type=applewatch-screensaver"
+open WatchOSX.saver
+rm -rf __MACOSX "download.php?type=applewatch-screensaver" WatchOSX.saver
 
 # Hide User and Time Machine from MenuBar
 for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
@@ -88,18 +96,3 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
 # Disable continuous spell checking
 defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
-
-# blocklist for transmission
-# Source: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission/
-defaults write org.m0k.transmission BlocklistNew -bool true
-defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
-defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
-
-# Screensaver
-cd ~/
-wget "http://www.rasmusnielsen.dk/download.php?type=applewatch-screensaver"
-unzip "download.php?type=applewatch-screensaver"
-open WatchOSX.saver
-rm -rf __MACOSX "download.php?type=applewatch-screensaver" WatchOSX.saver
-
-# reboot now
