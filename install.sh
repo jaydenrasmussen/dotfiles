@@ -10,7 +10,7 @@ bash ./scripts/devtools.sh
 echo "Making the terminal useful..."
 # # Make the terminal actually useful
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sudo ln -s ../.zshrc ~/.zshrc
+sudo ln -s ~/dotfiles/.zshrc ~/.zshrc
 npm i -g pure-prompt
 
 echo  -e "\n\n\nFinished Installing\n\n\n"
