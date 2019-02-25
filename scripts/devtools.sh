@@ -92,6 +92,18 @@ mkdir -p ~/Projects
 mkdir -p ~/Sandbox
 echo "done!"
 
+echo "Setting up Git environment\n"
+echo -n "Enter the name for git [ENTER]: "
+read username
+git config --global user.name "${username}"
+echo -n "Enter the email to use for git [ENTER]: "
+read email
+git config --global user.email "${email}"
+git config --global core.autocrlf input
+git config --global core.safecrlf true
+git config --global alias.squash=!f(){ git reset --soft HEAD~${1} && git commit --edit -m"$(git log --format=%B --reverse HEAD..HEAD@{1})"; };f
+git config --global alias.lg=log --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+
 echo "Linking dotfiles"
 declare dotfilesToDelete=(
     ~/.clang-format
