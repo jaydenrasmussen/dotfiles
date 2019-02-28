@@ -92,7 +92,7 @@ mkdir -p ~/Projects
 mkdir -p ~/Sandbox
 echo "done!"
 
-echo "Setting up Git environment\n"
+echo "-- Setting up Git environment --\n"
 echo -n "Enter the name for git [ENTER]: "
 read username
 git config --global user.name "${username}"
@@ -101,8 +101,12 @@ read email
 git config --global user.email "${email}"
 git config --global core.autocrlf input
 git config --global core.safecrlf true
-git config --global alias.squash=!f(){ git reset --soft HEAD~${1} && git commit --edit -m"$(git log --format=%B --reverse HEAD..HEAD@{1})"; };f
-git config --global alias.lg=log --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+# git squash <hash> <new commit message>
+git config --global alias.squash '!f(){ git reset --soft "${1}~" && git add -a && git commit -m "${2}"; };f'
+# nicer git log
+git config --global alias.lg "log --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)[%ar]%C(reset) %C(white)%s%C(reset) %C(dim white) -%an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+# git replay <hash> <message>
+git config --global alias.replay '!f(){ git rm -r . && git checkout "${1}" . && git commit -m "${2}"; };f'
 
 echo "Linking dotfiles"
 declare dotfilesToDelete=(
