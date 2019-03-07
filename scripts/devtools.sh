@@ -23,7 +23,7 @@ declare taps=(
     caskroom/cask
     caskroom/fonts
 )
-brew tap "${taps}" &> /dev/null
+brew tap "${taps[@]}" &> /dev/null
 echo "done!"
 
 echo "Installing dev command line tools"
@@ -60,44 +60,7 @@ echo "done!"
 
 declare fonts=(
     font-inter-ui
-    font-roboto
-    font-roboto-mono
-    font-roboto-condensed
-    font-roboto-mono-slab
-)
-echo "Installing fonts"
-brew cask install ${fonts[@]} &> /dev/null
-echo "done!"
-
-brew cleanup &> /dev/null
-
-echo "Installing Valet"
-composer global require laravel/valet &> /dev/null &&  \
-~/.composer/vendor/bin/valet install &> /dev/null && \
-mkdir ~/Valet &> /dev/null && \
-cd ~/Valet &> /dev/null && \
-valet park &> /dev/null
-echo "done!"
-
-cd ~/dotfiles
-
-echo "Installing node 8.*"
-# # Node tooling
-nvm install lts/carbon &> /dev/null
-echo "done!"
-
-# # Create the Git folder and environment
-echo "Creating standard project folders"
-mkdir -p ~/Projects
-mkdir -p ~/Sandbox
-echo "done!"
-
-echo "-- Setting up Git environment --\n"
-echo -n "Enter the name for git [ENTER]: "
-read username
-git config --global user.name "${username}"
-echo -n "Enter the email to use for git [ENTER]: "
-read email
+sassread email
 git config --global user.email "${email}"
 git config --global core.autocrlf input
 git config --global core.safecrlf true

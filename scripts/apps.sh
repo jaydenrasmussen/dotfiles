@@ -7,11 +7,11 @@ declare secapps=(
     wireshark
     youtube-dl
 )
-brew install "${secapps}" &> /dev/null
+brew install "${secapps[@]}"
 echo "done!"
 
 echo "installing userland applications"
-declare apps = (
+declare apps=(
     adapter
     appcleaner
     caffeine
@@ -44,5 +44,5 @@ declare apps = (
     vlc
     zoomus
 )
-brew cask install "${apps}" &> /dev/null
+brew cask install "${apps[@]}"
 echo "done!"

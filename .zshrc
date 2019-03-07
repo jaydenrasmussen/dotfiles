@@ -31,7 +31,17 @@ alias bump="brew update && brew upgrade && brew cleanup"
 alias compile="g++ -std=c++14"
 # starting a db
 alias start_mongo="mongod --dbpath /Volumes/Scratch/Mongo/db"
-
+resize_photos() {
+  # Make directories
+  mkdir -p "$1/320" "$1/640" "$1/960" "$1/1280" "$1/1600" "$1/1920"
+  # Resize and compress
+  mogrify -quality "85%" -resize 320 -filter Lanczos -interlace Plane -sampling-factor 4:2:0 -strip -interlace JPEG -colorspace sRGB -path "$1/320" "$1/*.jpg"
+  mogrify -quality "85%" -resize 640 -filter Lanczos -interlace Plane -sampling-factor 4:2:0 -strip -interlace JPEG -colorspace sRGB -path "$1/640" "$1/*.jpg"
+  mogrify -quality "85%" -resize 960 -filter Lanczos -interlace Plane -sampling-factor 4:2:0 -strip -interlace JPEG -colorspace sRGB -path "$1/960" "$1/*.jpg"
+  mogrify -quality "85%" -resize 1280 -filter Lanczos -interlace Plane -sampling-factor 4:2:0 -strip -interlace JPEG -colorspace sRGB -path "$1/1280" "$1/*.jpg"
+  mogrify -quality "85%" -resize 1600 -filter Lanczos -interlace Plane -sampling-factor 4:2:0 -strip -interlace JPEG -colorspace sRGB -path "$1/1600" "$1/*.jpg"
+  mogrify -quality "85%" -resize 1920 -filter Lanczos -interlace Plane -sampling-factor 4:2:0 -strip -interlace JPEG -colorspace sRGB -path "$1/1920" "$1/*.jpg"
+}
 # count lines of code
 # everything within this comma seperated list should be updated to include new stuff if needed
 alias loc="cloc --exclude-dir=node_modules,bin,package.json,yarn.lock,.gitignore,.editorconfig,README.md,LICENSE.md,*.zip ."
