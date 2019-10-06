@@ -1,9 +1,11 @@
-echo "\n"
 echo "----------------------------------------------------"
 echo "-                                                  -"
-echo "-               Initiating Dev Environment         -"
+echo "-             Initiating Dev Environment           -"
 echo "-                                                  -"
 echo "----------------------------------------------------"
+
+read -p "Email: " email
+read -p "Name: " name
 
 # xcode cli
 echo "Installing built-in tools"
@@ -29,38 +31,53 @@ echo "done!"
 echo "Installing dev command line tools"
 declare devapps=(
     automake
-    awscli
     aws-sam-cli
+    awscli
     clang-format
+    cloc
     cmake
     composer
     coreutils
-    docker
+    exiftool
+    figlet
     git
+    git-secret
+    gnupg
     go
+    highlight
+    httpie
+    imagemagick
+    jq
     kubeless
     kubernetes-cli
     m-cli
+    mas
+    nettle
+    nghttp2
+    nginx
     nvm
     openshift-cli
-    php@7.2
     openssl
+    packer
+    pandoc
     python
     rust
     telnet
+    terraform
     the_silver_searcher
     thefuck
     wget
-    yarn
 )
-brew install ${devapps[@]} &> /dev/null
+brew install ${devapps[@]}
 echo "Installing Docker"
-brew cask install docker &> /dev/null
+brew cask install docker
 echo "done!"
 
-declare fonts=(
-    font-inter-ui
-sassread email
+
+read email
+printf "Configuring git"
+
+git config --global user.name "${name}"
 git config --global user.email "${email}"
 git config --global core.autocrlf input
 git config --global core.safecrlf true
@@ -79,8 +96,14 @@ declare dotfilesToDelete=(
     ~/.gitignore
 )
 rm -rf "${dotfilesToDelete}"
+
 ln -s ~/dotfiles/.clang-format ~/.clang-format
 ln -s ~/dotfiles/.clocignore ~/.clocignore
 ln -s ~/dotfiles/.editorconfig ~/.editorconfig
 ln -s ~/dotfiles/.gitignore ~/.gitignore
+
+echo "done!"
+
+echo "Generating a GPG Key"
+bash ~/dotfiles/gen_key.sh \"${name}\" \"${email}\"
 echo "done!"

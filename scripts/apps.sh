@@ -1,48 +1,62 @@
-echo "Installing security tools"
-declare secapps=(
-    exiftool
-    ffmpeg
-    gnupg
-    nmap
-    wireshark
-    youtube-dl
-)
-brew install "${secapps[@]}"
-echo "done!"
-
 echo "installing userland applications"
 declare apps=(
     adapter
     appcleaner
-    caffeine
+    balenaetcher
+    battle-net
+    burn
+    clipy
     discord
+    docker
     dropbox
     dupeguru
     evernote
     firefox
-    gitup
+    flash-player
+    font-roboto
+    font-roboto-mono
     go2shell
+    google-backup-and-sync
     google-chrome
     hermes
     itsycal
     keka
-    notational-velocity
+    kindle
+    league-of-legends
     notion
+    obs
     onyx
+    oracle-jdk
+    osxfuse
+    postman
     qlcolorcode
     qlimagesize
     qlmarkdown
     qlstephen
     quicklook-json
+    sketch
     slack
     smcfancontrol
     spotify
+    steam
+    sublime-merge
     sublime-text
-    transmission
+    teamviewer
+    the-unarchiver
+    typora
     unetbootin
     veracrypt
+    virtualbox
+    virtualbox-extension-pack
     vlc
+    wine-stable
+    xquartz
     zoomus
 )
 brew cask install "${apps[@]}"
 echo "done!"
+printf "Installing Apps from the app store\n"
+declare appstoreapps=(
+    937984704
+)
+mas install "${appstoreapps[@]}"

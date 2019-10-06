@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 echo "!!! STOP! Before you run this file make sure you have everything installed at ~/dotfiles !!!"
 echo "-- Welcome to a fresh new installation! --";
+
 echo "We are currently running in $SHELL"
 
+read -n 1 -r -p "Press enter to continue"
+
 bash ./scripts/devtools.sh
-# bash ./scripts/apps.sh
+bash ./scripts/apps.sh
 # bash ./scripts/macos.sh
 #
 echo "Making the terminal useful..."
@@ -12,10 +15,11 @@ echo "Making the terminal useful..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo ln -s ~/dotfiles/.zshrc ~/.zshrc
 npm i -g pure-prompt
+echo "prompt-init; prompt pure;" >> ~/.zshrc
 
 echo  -e "\n\n\nFinished Installing\n\n\n"
 read -n 1 -r -p "Press space to reboot..." key
-if [ "$key" = '' ]; then
+if [ "$key" = ' ' ]; then
     echo "rebooting..."
     sudo shutdown -r now
     exit

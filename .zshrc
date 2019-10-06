@@ -60,3 +60,17 @@ cd () {
 }
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 eval "$(pyenv init -)"
+
+export AWS_MFA_ARN="arn:aws:iam::479162730451:mfa/jarasmus"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/jaydenrasmussen/Projects/cs3750_group4/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/jaydenrasmussen/Projects/cs3750_group4/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/jaydenrasmussen/Projects/cs3750_group4/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/jaydenrasmussen/Projects/cs3750_group4/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/jaydenrasmussen/Projects/cs3750_group4/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/jaydenrasmussen/Projects/cs3750_group4/node_modules/tabtab/.completions/slss.zsh
+# added by travis gem
+[ -f /Users/jaydenrasmussen/.travis/travis.sh ] && source /Users/jaydenrasmussen/.travis/travis.sh
