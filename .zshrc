@@ -72,5 +72,6 @@ export AWS_MFA_ARN="arn:aws:iam::479162730451:mfa/jarasmus"
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/jaydenrasmussen/Projects/cs3750_group4/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/jaydenrasmussen/Projects/cs3750_group4/node_modules/tabtab/.completions/slss.zsh
-# added by travis gem
-[ -f /Users/jaydenrasmussen/.travis/travis.sh ] && source /Users/jaydenrasmussen/.travis/travis.sh
+alias pip= /usr/local/bin/pip3
+alias python=/usr/local/bin/python3
+export PATH="/usr/local/opt/ruby/bin:$PATH"
