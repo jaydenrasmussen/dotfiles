@@ -14,8 +14,6 @@ sudo softwareupdate -ia --verbose
 # Install only recommended available updates
 #sudo softwareupdate -ir --verbose
 
-echo "------------------------------"
-echo "Installing Xcode Command Line Tools."
 echo "----------------------------------------------------"
 echo "-       Installing Xcode Command Line Tools        -"
 echo "----------------------------------------------------"
@@ -24,6 +22,8 @@ xcode-select --install
 
 chmod +x scripts/devtools.sh
 chmod +x scripts/apps.sh
+chmod +x scripts/brew.sh
 
-scripts/devtools.sh
-scripts/apps.sh
+~/dotfiles/scripts/brew.sh
+~/dotfiles/scripts/devtools.sh
+~/dotfiles/scripts/apps.sh
