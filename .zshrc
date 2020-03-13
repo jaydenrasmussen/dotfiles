@@ -13,6 +13,26 @@ export PATH="/usr/local/opt/libpcap/bin:$PATH"
 export PATH="~/.composer/vendor/bin:$PATH"
 export GOPATH=~/Go
 # ALIAS
+# Containers
+alias k="kubectl"
+alias kaf="kubectl apply -f"
+alias kdf="kubectl delete -f"
+alias kg="kubectl get"
+alias kgp="kubectl get pods"
+alias kgpa="kubectl get pods -A"
+alias kd="kubectl describe"
+
+alias dk="docker"
+alias dkps="docker ps"
+alias dkpsa="docker ps -a"
+alias dkia="docker images -a"
+alias dki="docker images"
+alias dkb="docker build"
+
+alias dkc="docker-compose"
+alias dkcu="docker-compose up"
+alias dkcd="docker-compose down"
+
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv $HOME/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 # Convert line endings to UNIX
 alias dos2unix="perl -pi -e 's/\r\n?/\n/g'"
@@ -45,23 +65,6 @@ resize_photos() {
 # count lines of code
 # everything within this comma seperated list should be updated to include new stuff if needed
 alias loc="cloc --exclude-dir=node_modules,bin,package.json,yarn.lock,.gitignore,.editorconfig,README.md,LICENSE.md,*.zip ."
-# GoPath
-cd () {
-    builtin cd "$@"
-    cdir=$PWD
-    while [ "$cdir" != "/" ]; do
-        if [ -e "$cdir/.gopath" ]; then
-            export GOPATH=$cdir
-			export GOBIN=$GOPATH/bin
-            break
-        fi
-        cdir=$(dirname "$cdir")
-    done
-}
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
-eval "$(pyenv init -)"
-
-export AWS_MFA_ARN="arn:aws:iam::479162730451:mfa/jarasmus"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`

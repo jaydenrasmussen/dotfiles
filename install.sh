@@ -1,28 +1,29 @@
 #!/usr/bin/env bash
-echo "!!! STOP! Before you run this file make sure you have everything installed at ~/dotfiles !!!"
-echo "-- Welcome to a fresh new installation! --";
 
-echo "We are currently running in $SHELL"
+# Ask for the administrator password upfront
+sudo -v
 
-read -n 1 -r -p "Press enter to continue"
+# Keep-alive: update existing `sudo` time stamp until `osxprep.sh` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-bash ./scripts/devtools.sh
-bash ./scripts/apps.sh
-# bash ./scripts/macos.sh
-#
-echo "Making the terminal useful..."
-# # Make the terminal actually useful
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sudo ln -s ~/dotfiles/.zshrc ~/.zshrc
-npm i -g pure-prompt
-echo "prompt-init; prompt pure;" >> ~/.zshrc
+# Step 1: Update the OS and Install Xcode Tools
+echo "------------------------------"
+echo "Updating OSX.  If this requires a restart, run the script again."
+# Install all available updates
+sudo softwareupdate -ia --verbose
+# Install only recommended available updates
+#sudo softwareupdate -ir --verbose
 
-echo  -e "\n\n\nFinished Installing\n\n\n"
-read -n 1 -r -p "Press space to reboot..." key
-if [ "$key" = ' ' ]; then
-    echo "rebooting..."
-    sudo shutdown -r now
-    exit
-else
-    exit
-fi
+echo "------------------------------"
+echo "Installing Xcode Command Line Tools."
+echo "----------------------------------------------------"
+echo "-       Installing Xcode Command Line Tools        -"
+echo "----------------------------------------------------"
+# Install Xcode command line tools
+xcode-select --install
+
+chmod +x scripts/devtools.sh
+chmod +x scripts/apps.sh
+
+scripts/devtools.sh
+scripts/apps.sh
