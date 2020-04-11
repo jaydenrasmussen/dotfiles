@@ -20,10 +20,12 @@ echo "----------------------------------------------------"
 # Install Xcode command line tools
 xcode-select --install
 
-chmod +x scripts/devtools.sh
-chmod +x scripts/apps.sh
-chmod +x scripts/brew.sh
+echo "----------------------------------------------------"
+echo "-         Installing Hombrew and Brewfile          -"
+echo "----------------------------------------------------"
 
-~/dotfiles/scripts/brew.sh
-~/dotfiles/scripts/devtools.sh
-~/dotfiles/scripts/apps.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+brew install mas-cli
+
+brew bundle

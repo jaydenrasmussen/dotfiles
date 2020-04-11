@@ -7,60 +7,6 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 echo "----------------------------------------------------"
-echo "-                                                  -"
-echo "-            Initializing Dev Environment          -"
-echo "-                                                  -"
-echo "----------------------------------------------------"
-
-
-echo "Installing dev command line tools"
-declare devapps=(
-    automake
-    awscli
-    black
-    cfssl
-    clang-format
-    cloc
-    cmake
-    composer
-    coreutils
-    doctl
-    docker-compose
-    exiftool
-    figlet
-    git
-    git-secret
-    git-extras
-    gnupg
-    go
-    highlight
-    httpie
-    imagemagick
-    jq
-    kubernetes-cli
-    m-cli
-    mas
-    minikube
-    nettle
-    nghttp2
-    nginx
-    nvm
-    openshift-cli
-    openssl
-    packer
-    pandoc
-    python
-    rust
-    telnet
-    tfenv
-    the_silver_searcher
-    thefuck
-    watch
-    wget
-)
-brew install ${devapps[@]}
-
-echo "----------------------------------------------------"
 echo "-                   Configuring git                -"
 echo "----------------------------------------------------"
 

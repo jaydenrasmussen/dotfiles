@@ -33,6 +33,8 @@ alias dkc="docker-compose"
 alias dkcu="docker-compose up"
 alias dkcd="docker-compose down"
 
+alias mkdirp="mkdir -p"
+
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv $HOME/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 # Convert line endings to UNIX
 alias dos2unix="perl -pi -e 's/\r\n?/\n/g'"
@@ -64,7 +66,7 @@ resize_photos() {
 }
 # count lines of code
 # everything within this comma seperated list should be updated to include new stuff if needed
-alias loc="cloc --exclude-dir=node_modules,bin,package.json,yarn.lock,.gitignore,.editorconfig,README.md,LICENSE.md,*.zip ."
+alias loc="cloc --exclude-dir=node_modules,bin,package.json,yarn.lock,.gitignore,.editorconfig,README.md,LICENSE.md,*.zip,*.tar.gz,*.tar ."
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
