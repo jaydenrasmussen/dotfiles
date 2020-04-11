@@ -7,8 +7,10 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Step 1: Update the OS and Install Xcode Tools
-echo "------------------------------"
-echo "Updating OSX.  If this requires a restart, run the script again."
+echo "----------------------------------------------------"
+echo "-                   Updating OSX                   -"
+echo "- If this requires a restart run the script again. -"
+echo "----------------------------------------------------"
 # Install all available updates
 sudo softwareupdate -ia --verbose
 # Install only recommended available updates
@@ -24,8 +26,16 @@ echo "----------------------------------------------------"
 echo "-         Installing Hombrew and Brewfile          -"
 echo "----------------------------------------------------"
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh \
+| bash
 
 brew install mas-cli
 
-brew bundle
+curl -L https://raw.githubusercontent.com/jaydenrasmussen/dotfiles/master/Brewfile \
+| brew bundle --file=-
+
+git clone https://github.com/jaydenrasmussen/dotfiles.git ~/ && cd ~/dotfiles
+
+chmod +x ./**/*.sh *.sh
+
+./scripts/devtools.sh
