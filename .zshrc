@@ -21,6 +21,13 @@ alias kg="kubectl get"
 alias kgp="kubectl get pods"
 alias kgpa="kubectl get pods -A"
 alias kd="kubectl describe"
+kubeshell() {
+  if [[ -z $2 ]]; then
+    kubectl run $1  --rm -i --tty --image bitnami/minideb:buster -- bash
+  else
+    kubectl run $1 -n $2  --rm -i --tty --image bitnami/minideb:buster -- bash
+  fi
+}
 
 alias dk="docker"
 alias dkps="docker ps"
@@ -34,6 +41,16 @@ alias dkcu="docker-compose up"
 alias dkcd="docker-compose down"
 
 alias mkdirp="mkdir -p"
+# Terraform
+alias tf="terraform"
+alias tfi="terraform init"
+alias tfw="terraform workspace"
+alias tfws="terraform workspace show"
+alias tfp="terraform plan"
+alias tfa="terraform apply"
+alias tfaa="terraform apply -auto-approve"
+alias tfd="terraform destroy"
+alias tfda="terraform destroy -auto-approve"
 
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv $HOME/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 # Convert line endings to UNIX
@@ -41,7 +58,7 @@ alias dos2unix="perl -pi -e 's/\r\n?/\n/g'"
 # My IP
 alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print \$2}'"
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
+  alias "$method"="lwp-request -m '$method'"
 done
 # make executable
 alias ax="chmod a+x"
@@ -79,4 +96,6 @@ alias loc="cloc --exclude-dir=node_modules,bin,package.json,yarn.lock,.gitignore
 [[ -f /Users/jaydenrasmussen/Projects/cs3750_group4/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/jaydenrasmussen/Projects/cs3750_group4/node_modules/tabtab/.completions/slss.zsh
 alias pip= /usr/local/bin/pip3
 alias python=/usr/local/bin/python3
+
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+eval "$(pyenv init -)"
