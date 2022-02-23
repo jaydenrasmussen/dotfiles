@@ -1,0 +1,14 @@
+[core]
+    autocrlf = input
+    safecrlf = true
+[alias]
+    template = "!f(){ git init && cp -R "~/.templates/${1}/." . && lefthook install; };f"
+    squash = "!f(){ git reset --soft \"${1}~\" && git add -a && git commit -m \"${2}\"; };f"
+    lg = log --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)[%ar]%C(reset) %C(white)%s%C(reset) %C(dim white) - %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    replay = "!f(){ git rm -r . && git checkout \"${1}\" . && git commit -m \"${2}\"; };f"
+    unstage = reset --soft HEAD^
+    ll = log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%an]' --decorate --numstat
+[pull]
+    ff = only
+[init]
+    defaultBranch = main
