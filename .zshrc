@@ -119,6 +119,13 @@ alias k="kubectl"
 alias kg="kubectl get"
 alias kd="kubectl describe"
 alias kdl="kubectl delete"
+kubeshell() {
+  if [[ -z $2 ]]; then
+    kubectl run $1  --rm -i --tty --image bitnami/minideb:buster -- bash
+  else
+    kubectl run $1 -n $2  --rm -i --tty --image bitnami/minideb:buster -- bash
+  fi
+}
 
 alias h="helm"
 
@@ -127,3 +134,4 @@ alias waiting4hasan="streamlink https://twitch.tv/hasanabi best"
 alias yget="youtube-dl -x --audio-quality 0 --audio-format m4a"
 alias mux="yt-dlp -x --audio-format m4a --audio-quality 0 --embed-thumbnail --add-metadata"
 alias mu="yt-dlp -x --audio-format m4a --audio-quality 0 --embed-thumbnail --parse-metadata 'playlist_index:%(track_number)s' --add-metadata"
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv $HOME/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"

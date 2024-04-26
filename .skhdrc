@@ -1,7 +1,10 @@
 # skhd config
 
 # Yabai
-## Movement
+# start and stop
+ctrl + alt - q: yabai --stop-service
+ctrl + alt - s: yabai --start-service
+# Movement
 ctrl + alt - a : yabai -m window --warp west
 ctrl + alt - d : yabai -m window --warp east
 ctrl + alt - s : yabai -m window --warp south
@@ -9,8 +12,14 @@ ctrl + alt - w : yabai -m window --warp north
 # rotate whole workspace
 alt - l : yabai -m space --rotate 90
 
-# create new space
-alt - n : yabai -m space --create
+# swap windows
+shift + alt - h: yabai -m window --swap west
+shift + alt - j: yabai -m window --swap south
+shift + alt - k: yabai -m window --swap north
+shift + alt - l: yabai -m window --swap east
 
-# delete current space
-alt - m : yabai -m space --destroy
+# move window and split
+ctrl + alt - h: yabai -m window --warp west
+ctrl + alt - j: yabai -m window --warp south
+ctrl + alt - k: yabai -m window --warp north
+ctrl + alt - l: yabai -m window --warp east
