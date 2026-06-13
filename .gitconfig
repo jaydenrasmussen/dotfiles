@@ -10,5 +10,7 @@
     ll = log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%an]' --decorate --numstat
 [pull]
     ff = only
+[push]
+    autoSetupRemote = true
 [init]
     defaultBranch = main
